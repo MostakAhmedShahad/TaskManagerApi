@@ -1,5 +1,3 @@
- 
-
 import 'package:flutter/material.dart';
 import 'package:task_manager/ui/screen/OTP_verification_screen.dart';
 import 'package:task_manager/ui/screen/login_screen.dart';
@@ -8,17 +6,17 @@ import 'package:task_manager/ui/widget/app_elevated_button.dart';
 import 'package:task_manager/ui/widget/app_text_input.dart';
 import 'package:task_manager/ui/widget/screen_background.dart';
 
-class VerifyWithEmailScreen extends StatefulWidget {
-  const VerifyWithEmailScreen({super.key});
+class SetPasswordScreen extends StatefulWidget {
+  const SetPasswordScreen({super.key});
 
   @override
-  State<VerifyWithEmailScreen> createState() => _VerifyWithEmailScreenState();
+  State<SetPasswordScreen> createState() => _SetPasswordScreenState();
 }
 
-class _VerifyWithEmailScreenState extends State<VerifyWithEmailScreen> {
+class _SetPasswordScreenState extends State<SetPasswordScreen> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold (
+    return Scaffold (
       body: ScreenBackground(child: 
       SafeArea(
         child: Padding(
@@ -27,15 +25,16 @@ class _VerifyWithEmailScreenState extends State<VerifyWithEmailScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Your Email Address',style: ScreenTittle,),
+              Text('Set Password',style: ScreenTittle,),
               SizedBox(height: 6,),
-              Text('A 6 digit verification pin will send to your Email Address', style: HeadText6,),
+              Text('Minimum lenth password is 8 with character and number combination', style: HeadText6,),
               SizedBox(height: 16,),
-              AppTextInput(hintText: 'Email Address', controller: TextEditingController()),
+              AppTextInput(hintText: 'Password', controller: TextEditingController()),
+              SizedBox(height: 16,),
+              AppTextInput(hintText: 'Confirm Password', controller: TextEditingController()),
               SizedBox(height: 20,),
               AppElevatedButton(
-                child: Icon(Icons.arrow_circle_right_outlined,
-                color: Colors.white,) ,
+                child: Text('Confirm',style: TextStyle(color: Colors.white),) ,
                 onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> OtpVerificationScreen()));}),
 
                 SizedBox(height: 25,),

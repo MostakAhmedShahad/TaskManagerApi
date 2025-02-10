@@ -6,5 +6,5 @@ TextStyle ScreenTittle = const TextStyle(
 
 TextStyle HeadText6 = TextStyle(
 
-  color: Colors.black,fontSize: 6,fontWeight: FontWeight.w300
+  color: Colors.grey,fontSize: 14,fontWeight: FontWeight.w100,
 );
