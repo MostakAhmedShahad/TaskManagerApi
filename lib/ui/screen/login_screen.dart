@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/ui/screen/sign_up_screen.dart';
+import 'package:task_manager/ui/screen/verify_with_email_screen.dart';
 import 'package:task_manager/ui/utilities/style.dart';
 import 'package:task_manager/ui/widget/app_elevated_button.dart';
 import 'package:task_manager/ui/widget/app_text_input.dart';
@@ -60,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>  VerifyWithEmailScreen()));},
                   child: Text(
                     'Forget Password?',
                     style: TextStyle(color: Colors.grey),
