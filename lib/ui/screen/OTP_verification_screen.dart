@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:task_manager/ui/screen/login_screen.dart';
+import 'package:task_manager/ui/screen/set_password_screen.dart';
 import 'package:task_manager/ui/utilities/style.dart';
 import 'package:task_manager/ui/widget/app_elevated_button.dart';
 import 'package:task_manager/ui/widget/screen_background.dart';
@@ -77,7 +78,8 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                 appContext: context,
               ),
               SizedBox(height: 18,),
-              AppElevatedButton(child: Text('Verify', style: TextStyle(color: Colors.white),), onTap: (){}),
+              AppElevatedButton(child: Text('Verify', style: TextStyle(color: Colors.white),), 
+              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> SetPasswordScreen()));}),
                SizedBox(height: 25,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -85,7 +87,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                    const Text("Have account?"),
                     TextButton(
                         onPressed: () {
-                          Navigator.push(context,MaterialPageRoute(builder: (context) =>LoginScreen()));
+                          Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (context) =>const LoginScreen()), (route)=>false);
                         },
                         child: Text(
                           ' Sign In',

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:task_manager/ui/screen/OTP_verification_screen.dart';
 import 'package:task_manager/ui/screen/login_screen.dart';
@@ -15,7 +17,7 @@ class TaskManagerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SetPasswordScreen(),
+      home: LoginScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/ui/screen/main_bottom_nav_bar.dart';
 import 'package:task_manager/ui/screen/sign_up_screen.dart';
 import 'package:task_manager/ui/screen/verify_with_email_screen.dart';
 import 'package:task_manager/ui/utilities/style.dart';
@@ -47,7 +48,12 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 12,
             ),
             AppElevatedButton(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MainBottomNavBar()),
+                    (route) => false);
+              },
               child: Icon(
                 Icons.arrow_circle_right_outlined,
                 color: Colors.white,
@@ -61,7 +67,12 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 TextButton(
-                  onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>  VerifyWithEmailScreen()));},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => VerifyWithEmailScreen()));
+                  },
                   child: Text(
                     'Forget Password?',
                     style: TextStyle(color: Colors.grey),
@@ -70,10 +81,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                   const Text("Don't have account?"),
+                    const Text("Don't have account?"),
                     TextButton(
                         onPressed: () {
-                          Navigator.push(context,MaterialPageRoute(builder: (context) =>SignUpScreen()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SignUpScreen()));
                         },
                         child: Text(
                           ' Sign Up',
