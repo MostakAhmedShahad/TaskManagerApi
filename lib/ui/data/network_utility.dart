@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class NetworkUtility {
-  Future<dynamic> getMathod(String url) async {
+  Future<dynamic> getMethod(String url) async {
     try {
       final http.Response response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
@@ -17,7 +17,7 @@ class NetworkUtility {
     }
   }
 
-  Future<dynamic> postMathod(String url, {Map<String, String>? body}) async {
+  Future<dynamic> postMethod(String url, {Map<String, String>? body}) async {
     try {
       final http.Response response = await http.post(Uri.parse(url),
           headers: {"Content-Type": "application/json"},

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/ui/data/network_utility.dart';
+import 'package:task_manager/ui/utilities/show_snack_bar_message.dart';
 import 'package:task_manager/ui/utilities/style.dart';
 import 'package:task_manager/ui/widget/app_elevated_button.dart';
 import 'package:task_manager/ui/widget/app_text_input.dart';
@@ -129,9 +130,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     onTap: () async {
                       if (_formkey.currentState!.validate()) {
 
-                        final result = await NetworkUtility().postMathod (
+                        final result = await NetworkUtility().postMethod (
 
-                          'https://cors-anywhere.herokuapp.com/https://task.teamrabbil.com/api/v1/registration',
+                          'https://task.teamrabbil.com/api/v1/registration',
                           body: {
                             'email': emailEditingController.text.trim(),
                             'mobile':mobileEditingController.text.trim(),
@@ -139,10 +140,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             'firstName':firstNameEditingController.text.trim(),
                             'lastName':lastNameEditingController.text.trim(),
 
-                          }
+                          },
 
                         );
-                        print( result.statusCode);
+                        if(result!=null &&
+                        result['status']=='succes'
+                        
+                        ){
+                          showSnackBarMessage(context,'Registration Successful');
+
+                        }
+                        else{
+                          showSnackBarMessage(context,'Registration failed',true);
+                        }
+                         
                       }
                     }),
                 SizedBox(
